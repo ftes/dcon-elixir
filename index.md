@@ -1,4 +1,9 @@
-# Markdown Demo
+<!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
+
+#### Your stack is too damn complex
+----
+### Let it 🧨 Crash 🔥 with
+## Elixir
 
 
 
