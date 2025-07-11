@@ -15,6 +15,18 @@
 
         <!-- Theme used for syntax highlighted code -->
         <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+        <style>
+            .mermaid {
+                /* background-color: white; */
+                border-radius: 5px;
+            }
+
+            .mermaid svg {
+                max-width: initial !important;
+                max-height: 100%;
+            }
+        </style>
     </head>
     <body>
         <div class="reveal">
@@ -31,6 +43,7 @@
         <script src="plugin/notes/notes.js"></script>
         <script src="plugin/markdown/markdown.js"></script>
         <script src="plugin/highlight/highlight.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
         <script>
             // More info about initialization & config:
             // - https://revealjs.com/initialization/
@@ -40,6 +53,22 @@
 
                 // Learn about plugins: https://revealjs.com/plugins/
                 plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+            });
+
+            mermaid.initialize({
+                startOnLoad: false,
+                look: "handDrawn",
+                theme: "dark",
+            });
+
+            Reveal.on("slidechanged", (event) => {
+                const id = `${event.indexh}-${event.indexv}`;
+                event.currentSlide.dataset.slide = id;
+                console.log(`[data-slide="${id}"] .mermaid`);
+
+                mermaid.run({
+                    querySelector: `[data-slide="${id}"] .mermaid`,
+                });
             });
         </script>
     </body>

@@ -53,10 +53,23 @@ https://linode-micro.ftes.de
 ## The Stack 📚
 BEAM trivia + basic architecture
 
+<pre class="mermaid r-stretch">
+sequenceDiagram
+    create participant c1
+    main->>c1: spawn
+    create participant c2
+    main->>c2: spawn
+    main->>c1: {:increment, main}
+    main->>c2: :crash
+    destroy c2
+    main--xc2: crashed
+    c1->>main: {:count, 2}
+</pre>
+
 
 
 ## The Primitives 🧩
-- what primitives must the runtime proide to enable this?
+- what primitives must the runtime provide to enable this?
 - preemptive scheduling
 - introspection
 - fault isolation
