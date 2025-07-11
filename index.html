@@ -1,75 +1,74 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-        <title>Let it Crash with Elixir</title>
+    <title>Let it Crash with Elixir</title>
 
-        <link rel="stylesheet" href="dist/reset.css" />
-        <link rel="stylesheet" href="dist/reveal.css" />
-        <link rel="stylesheet" href="dist/theme/night.css" />
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/night.css" />
 
-        <!-- Theme used for syntax highlighted code -->
-        <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
-        <style>
-            .mermaid {
-                /* background-color: white; */
-                border-radius: 5px;
-            }
+    <style>
+      .mermaid svg {
+        max-width: initial !important;
+        max-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-markdown="index.md"
+          data-separator="^\n\n\n"
+          data-separator-vertical="^\n\n"
+        ></section>
+      </div>
+    </div>
 
-            .mermaid svg {
-                max-width: initial !important;
-                max-height: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
-                <section
-                    data-markdown="index.md"
-                    data-separator="^\n\n\n"
-                    data-separator-vertical="^\n\n"
-                ></section>
-            </div>
-        </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <!-- Allow caching (type="module" doesn't cache?) -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+      Reveal.initialize({
+        startOnLoad: false,
+        hash: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
 
-        <script src="dist/reveal.js"></script>
-        <script src="plugin/notes/notes.js"></script>
-        <script src="plugin/markdown/markdown.js"></script>
-        <script src="plugin/highlight/highlight.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-        <script>
-            // More info about initialization & config:
-            // - https://revealjs.com/initialization/
-            // - https://revealjs.com/config/
-            Reveal.initialize({
-                hash: true,
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "dark",
+        securityLevel: "loose",
+      });
 
-                // Learn about plugins: https://revealjs.com/plugins/
-                plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-            });
+      Reveal.on("slidechanged", async (event) => {
+        const selector = `.present .mermaid`;
+        const els = document.querySelectorAll(selector);
+        const scale = Reveal.getScale();
+        const invertScale = 1 / scale;
 
-            mermaid.initialize({
-                startOnLoad: false,
-                look: "handDrawn",
-                theme: "dark",
-            });
-
-            Reveal.on("slidechanged", (event) => {
-                const id = `${event.indexh}-${event.indexv}`;
-                event.currentSlide.dataset.slide = id;
-                console.log(`[data-slide="${id}"] .mermaid`);
-
-                mermaid.run({
-                    querySelector: `[data-slide="${id}"] .mermaid`,
-                });
-            });
-        </script>
-    </body>
+        // Temporarily reset diagram scale so that mermaid layout alg runs normally
+        els.forEach((el) => {
+          el.style.transform = `scale(${invertScale})`;
+        });
+        await mermaid.run({ querySelector: selector });
+        els.forEach((el) => {
+          el.style.transform = "";
+        });
+        Reveal.layout();
+      });
+    </script>
+  </body>
 </html>
