@@ -26,9 +26,12 @@ Noone Ever <!-- .element style="text-align: right" --> \
 
 
 ## The System 🖥️
-https://linode-micro.ftes.de
-<!-- TODO QR Code -->
-- please hammer the system :)
+
+http://ftes.de/owl
+
+<img src="img/qrcode.png" class="r-stretch" />
+
+Please hammer the system 🙂
 
 
 
