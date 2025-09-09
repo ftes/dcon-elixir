@@ -41,12 +41,11 @@ http://ftes.de/owl
 
 
 
-
 ### How would You create such a system?
 - What building blocks would you need?
     - Especially given the hardware constraints we've imposed
+- TODO: Comment on LinkedIn
 - TODO: note/idea-sharing app (self built?)
-
 
 
 
@@ -54,22 +53,20 @@ http://ftes.de/owl
 - Let us monitor it's behaviour
 - Let us monitor it's interactions with the HW
 - While we are trying to break it
-
+- TODO: put an artifical timeout of 1.5 min into the app for better responsiveness
 
 
 
 ### The Bugs 🐛
-- edge case: error
 - edge case: slow calc
+- edge case: error
 - edge case: infinite loop
-
 
 
 
 ### Observability
 - How can you find a 'misbehaving part of software' on PROD?
 - Follow-Up: How do you partition software in your stack?
-
 
 
 
@@ -80,40 +77,39 @@ http://ftes.de/owl
 
 
 
-
 ### The Building Blocks for Robustness
 - what primitives must the runtime provide to enable this?
+- ...
+
+
+### The Building Blocks for Robustness
+lightweight, isolated threads
 - preemptive scheduling
-- introspection
-- fault isolation
-- (distribution)
+- memory isolation & message passing
+- threads have and identity -> introspection
+- process supervision (via message system)
 
 
 
-### The Stack 📚
-BEAM trivia + basic architecture
-
-<pre class="mermaid r-stretch">
-sequenceDiagram
-    create participant c1
-    main->>c1: spawn
-    create participant c2
-    main->>c2: spawn
-    main->>c1: {:increment, main}
-    main->>c2: :crash
-    destroy c2
-    main--xc2: crashed
-    c1->>main: {:count, 2}
-</pre>
+### Reducing Complexity
+- complex -> to complect
+- there are errors that are relevant to the user (wrong input, data validation)
+- and errors that are irrelevant to the user (database connection fails)
+- Why do both types of errors need to be complected?
 
 
 
-### The table 🍽️
-|                | Stack A | Stack B|
-|----------------|---------|--------|
-| web server     |         | |
-| cache          | Redis   | |
-| µ-service comm | RabbitMQ | |
-| deployment     | Kubnernetes | |
-| observability (distributed traces) |      | |
-| UI | SPA + GraphQL API | |
+### Let it crash and heal itself
+- fragility on the micro-scale often means robustness on the macro scale
+  - i.e.: cancer are cells that refuse to die
+- Supervision-tree:
+  - restart subsystem that got affected by a non user-facing error
+  - i.e.: transient db connection outage
+
+
+
+### The long tail of benefits
+- Distributed as a default
+  - Kubernetes, distributed caches, message queues
+- SSR + WebSockets + DOM patching = No Problem
+  - Phoenix + LiveView (Now in 1.1)
