@@ -1,9 +1,12 @@
 <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
-# Designing Robust Systems
+## Let it Crash
+----
+## Designing Robust Systems
 
 
 
 ### Robust System
+- Who needs this anyways?
 - Sounds pretty unspecific, no?
 - Let's zoom in
 
@@ -14,15 +17,20 @@
 - runs performant despite errors happening
 - treats users fair w.r.t. load
 - deals with "Heisenbugs"
-- keeps support costs low
-- keeps operational costs low
 - self-heals
+
+Note:
+- low support and operational costs
 
 
 
 ### Use cases
 1. High availability
-2. Start ups (resource constraints, build fast + scalable)
+2. Simple tech stack
+3. Start ups (resource constraints, build fast + scalable)
+
+Note:
+- simple tech stack: not language: infrastructure and ops
 
 
 
@@ -44,8 +52,7 @@ http://ftes.de/owl
 ### How would You create such a system?
 - What building blocks would you need?
     - Especially given the hardware constraints we've imposed
-- TODO: Comment on LinkedIn
-- TODO: note/idea-sharing app (self built?)
+- TODO: Comment in the app itself -> build bulleting board
 
 
 
@@ -54,6 +61,8 @@ http://ftes.de/owl
 - Let us monitor it's interactions with the HW
 - While we are trying to break it
 - TODO: put an artifical timeout of 1.5 min into the app for better responsiveness
+- TODO: enable OS-Data in Dashboard
+- TODO: secure dashboard behind phoenix basic auth
 
 
 
@@ -67,6 +76,7 @@ http://ftes.de/owl
 ### Observability
 - How can you find a 'misbehaving part of software' on PROD?
 - Follow-Up: How do you partition software in your stack?
+- TODO: separate bulletin board for observability
 
 
 
