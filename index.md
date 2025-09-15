@@ -78,7 +78,6 @@ http://ftes.de/owl
 
 
 ### DevOps hat on 👷‍♀️
-- TODO: copy over IEX - Instrospection Helpers from original talk
 - shell & std lib only
 <!-- second display / vertical split: always keep dashboard visible? -->
 - hot code update via scp
@@ -101,18 +100,16 @@ lightweight, isolated threads
 
 ### Reducing Complexity
 - complex -> to complect
-- there are errors that are relevant to the user (wrong input, data validation)
-- and errors that are irrelevant to the user (database connection fails)
+- there are errors that are relevant to the user
+- and errors that are irrelevant to the user
 - Why do both types of errors need to be complected?
 
 
 
 ### Let it crash and heal itself
 - fragility on the micro-scale often means robustness on the macro scale
-  - i.e.: cancer are cells that refuse to die
 - Supervision-tree:
   - restart subsystem that got affected by a non user-facing error
-  - i.e.: transient db connection outage
 
 
 
