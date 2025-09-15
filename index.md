@@ -52,7 +52,6 @@ http://ftes.de/owl
 ### How would You create such a system?
 - What building blocks would you need?
     - Especially given the hardware constraints we've imposed
-- TODO: Comment in the app itself -> build bulleting board
 
 
 
@@ -60,7 +59,6 @@ http://ftes.de/owl
 - Let us monitor it's behaviour
 - Let us monitor it's interactions with the HW
 - While we are trying to break it
-- TODO: put an artifical timeout of 1.5 min into the app for better responsiveness
 - TODO: enable OS-Data in Dashboard
 - TODO: secure dashboard behind phoenix basic auth
 
@@ -76,11 +74,11 @@ http://ftes.de/owl
 ### Observability
 - How can you find a 'misbehaving part of software' on PROD?
 - Follow-Up: How do you partition software in your stack?
-- TODO: separate bulletin board for observability
 
 
 
 ### DevOps hat on 👷‍♀️
+- TODO: copy over IEX - Instrospection Helpers from original talk
 - shell & std lib only
 <!-- second display / vertical split: always keep dashboard visible? -->
 - hot code update via scp
