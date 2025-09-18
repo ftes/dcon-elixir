@@ -5,7 +5,9 @@
 
 
 
-### Robust System
+<img src="img/robustness_air_quotes.jpg" class="r-stretch" />
+
+Note:
 - Who needs this anyways?
 - Sounds pretty unspecific, no?
 - Let's zoom in
@@ -31,6 +33,9 @@ Note:
 
 Note:
 - simple tech stack: not language: infrastructure and ops
+
+
+<img src="img/robustness-vs-dx.jpg" class="r-stretch" />
 
 
 
@@ -64,7 +69,9 @@ http://ftes.de/owl
 
 
 
-### The Bugs 🐛
+<img src="img/sheldon-hunts-bugs.jpg" class="r-stretch" />
+
+Note:
 - edge case: slow calc
 - edge case: error
 - edge case: infinite loop
@@ -72,6 +79,9 @@ http://ftes.de/owl
 
 
 ### Observability
+<img src="img/observability.jpg" class="r-stretch" />
+
+Note:
 - How can you find a 'misbehaving part of software' on PROD?
 - Follow-Up: How do you partition software in your stack?
 
@@ -85,8 +95,7 @@ http://ftes.de/owl
 
 
 ### The Building Blocks for Robustness
-- what primitives must the runtime provide to enable this?
-- ...
+What primitives must the runtime provide to enable this?
 
 
 ### The Building Blocks for Robustness
@@ -99,6 +108,9 @@ lightweight, isolated threads
 
 
 ### Reducing Complexity
+<img src="img/complecting-code-paths-spiderman.jpg" class="r-stretch" />
+
+Note:
 - complex -> to complect
 - there are errors that are relevant to the user
 - and errors that are irrelevant to the user
@@ -107,6 +119,9 @@ lightweight, isolated threads
 
 
 ### Let it crash and heal itself
+<img src="img/just-restart-part-of-system.jpg" class="r-stretch" />
+
+Note:
 - fragility on the micro-scale often means robustness on the macro scale
 - Supervision-tree:
   - restart subsystem that got affected by a non user-facing error
@@ -118,3 +133,7 @@ lightweight, isolated threads
   - Kubernetes, distributed caches, message queues
 - SSR + WebSockets + DOM patching = No Problem
   - Phoenix + LiveView (Now in 1.1)
+
+
+
+<img src="img/robustness-and-dx.jpg" class="r-stretch" />
