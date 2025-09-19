@@ -1,7 +1,7 @@
 <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
 ## Let it Crash
 ----
-## Designing Robust Systems
+### Designing Robust Systems
 
 
 
@@ -15,9 +15,9 @@ Note:
 
 
 ### A robust system
-- keeps running despite errors happening
-- runs performant despite errors happening
-- treats users fair w.r.t. load
+- keeps running despite errors
+- runs performant despite errors
+- treats users fairly w.r.t. load
 - deals with "Heisenbugs"
 - self-heals
 
@@ -29,52 +29,57 @@ Note:
 ### Use cases
 1. High availability
 2. Simple tech stack
-3. Start ups (resource constraints, build fast + scalable)
+3. Start ups
 
 Note:
 - simple tech stack: not language: infrastructure and ops
+- start up: resources constraints, scalable
+
 
 
 <img src="img/robustness-vs-dx.jpg" class="r-stretch" />
 
 
 
-### System Constraints
+<img src="img/demo-time.jpg" class="r-stretch" />
+
 - small box
 - always available
-- expect load peaks
+- bugs and high load 🐞
+
+Note:
+- walk through web UI
+  - user facing input
+  - dashboard with telemetry
+  - load control
+  - bulletin board?
 
 
 
-### System Demo
+### How would
+## you
+### create such a system?
 
-http://ftes.de/owl
+TODO: Bulletin board?
+
+Note:
+- What building blocks would you need?
+- Especially given the hardware constraints we've imposed
+
+
 
 <img src="img/qrcode.png" class="r-stretch" />
 
-
-
-### How would You create such a system?
-- What building blocks would you need?
-    - Especially given the hardware constraints we've imposed
-
-
-
-### Is our Demo System robust?
-- Let us monitor it's behaviour
-- Let us monitor it's interactions with the HW
-- While we are trying to break it
-- TODO: enable OS-Data in Dashboard
-- TODO: secure dashboard behind phoenix basic auth
+<a href="https://ftes.de/owl">ftes.de/owl</a>
 
 
 
 <img src="img/sheldon-hunts-bugs.jpg" class="r-stretch" />
 
 Note:
-- edge case: slow calc
-- edge case: error
-- edge case: infinite loop
+- performance bug: slow calc
+- edge case: `13` bad input
+- missing input validation: negative number -> infinite loop
 
 
 
@@ -84,22 +89,25 @@ Note:
 Note:
 - How can you find a 'misbehaving part of software' on PROD?
 - Follow-Up: How do you partition software in your stack?
+- TODO: enable OS-Data in Dashboard
+- TODO: secure dashboard behind phoenix basic auth
 
 
 
-### DevOps hat on 👷‍♀️
-- shell & std lib only
-<!-- second display / vertical split: always keep dashboard visible? -->
-- hot code update via scp
+### Building Blocks
+<img src="img/legos.jpg" class="r-stretch" />
 
+### for Robustness
 
-
-### The Building Blocks for Robustness
+Note:
 What primitives must the runtime provide to enable this?
 
 
-### The Building Blocks for Robustness
-lightweight, isolated threads
+
+<img src="img/lego-plate-threads-meme.jpg" class="r-stretch" />
+
+Note:
+- threads: lightweight, isolated, identity
 - preemptive scheduling
 - memory isolation & message passing
 - threads have and identity -> introspection
@@ -128,12 +136,16 @@ Note:
 
 
 
-### The long tail of benefits
+<img src="img/long-tail-of-benefits.jpg" class="r-stretch" />
+Note:
 - Distributed as a default
   - Kubernetes, distributed caches, message queues
 - SSR + WebSockets + DOM patching = No Problem
   - Phoenix + LiveView (Now in 1.1)
 
+
+
+Time left? Dive into code.
 
 
 <img src="img/robustness-and-dx.jpg" class="r-stretch" />
