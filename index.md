@@ -72,14 +72,8 @@ Note:
 
 <a href="https://ftes.de/owl">ftes.de/owl</a>
 
-
-
-<img src="img/sheldon-hunts-bugs.jpg" class="r-stretch" />
-
 Note:
-- performance bug: slow calc
-- edge case: `13` bad input
-- missing input validation: negative number -> infinite loop
+- keep your browser windows open!
 
 
 
@@ -91,6 +85,20 @@ Note:
 - Follow-Up: How do you partition software in your stack?
 - TODO: enable OS-Data in Dashboard
 - TODO: secure dashboard behind phoenix basic auth
+
+
+
+### What are your tools?
+Bulletin board
+
+
+
+<img src="img/sheldon-hunts-bugs.jpg" class="r-stretch" />
+
+Note:
+- performance bug: slow calc
+- edge case: `13` bad input
+- missing input validation: negative number -> infinite loop
 
 
 
@@ -112,11 +120,19 @@ Note:
 - memory isolation & message passing
 - threads have and identity -> introspection
 - process supervision (via message system)
+- scheduler: back pressure - sending message to busy process? throttle
+
+
+
+### Process supervision
+TODO Tree
 
 
 
 ### Reducing Complexity
 <img src="img/complecting-code-paths-spiderman.jpg" class="r-stretch" />
+
+TODO interwoven threads image
 
 Note:
 - complex -> to complect
@@ -138,6 +154,9 @@ Note:
 
 <img src="img/long-tail-of-benefits.jpg" class="r-stretch" />
 Note:
+- assertions in code -> compact, crash if not in expected state
+- it crashes loudly -> see it in logs
+- back pressure - sending message to busy process? throttle
 - Distributed as a default
   - Kubernetes, distributed caches, message queues
 - SSR + WebSockets + DOM patching = No Problem
@@ -145,7 +164,11 @@ Note:
 
 
 
-Time left? Dive into code.
-
-
 <img src="img/robustness-and-dx.jpg" class="r-stretch" />
+
+
+
+### Pointers
+- Juric: Soul of Erlang
+- Hebert: Zen of Erlang
+- Tigerbeetle: Assertions, DST
