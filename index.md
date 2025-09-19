@@ -15,9 +15,10 @@ Note:
 
 
 ### A robust system
-- keeps running despite errors
-- runs performant despite errors
-- treats users fairly w.r.t. load
+- runs despite errors
+- performant despite errors
+- treats users fairly
+---
 - deals with "Heisenbugs"
 - self-heals
 
@@ -27,9 +28,9 @@ Note:
 
 
 ### Use cases
-1. High availability
-2. Simple tech stack
-3. Start ups
+- High availability
+- Simple tech stack
+- Start ups
 
 Note:
 - simple tech stack: not language: infrastructure and ops
@@ -43,9 +44,9 @@ Note:
 
 <img src="img/demo-time.jpg" class="r-stretch" />
 
-- small box
-- always available
-- bugs and high load 🐞
+<img src="img/hetzner-box.avif" class="r-stretch" />
+
+bugs and high load 🐞
 
 Note:
 - walk through web UI
@@ -53,14 +54,13 @@ Note:
   - dashboard with telemetry
   - load control: base load!
   - bulletin board?
+TODO nav bar in web UI
 
 
 
 ### How would
 ## you
 ### create such a system?
-
-TODO: Bulletin board?
 
 Note:
 - What building blocks would you need?
@@ -70,7 +70,7 @@ Note:
 
 <img src="img/qrcode.png" class="r-stretch" />
 
-<a href="https://ftes.de/owl">ftes.de/owl</a>
+[ftes.de/owl](https://ftes.de/owl)
 
 Note:
 - keep your browser windows open!
@@ -124,15 +124,17 @@ Note:
 
 
 
-### Process supervision
-TODO Tree
+## Supervision trees
+<img src="img/lego-tree-2.avif" class="r-stretch" />
+
+
+
+<img src="img/complecting-code-paths-spiderman.jpg" class="r-stretch" />
 
 
 
 ### Reducing Complexity
-<img src="img/complecting-code-paths-spiderman.jpg" class="r-stretch" />
-
-TODO interwoven threads image
+<img src="img/complect-tangled.jpg" class="r-stretch" />
 
 Note:
 - complex -> to complect
@@ -142,8 +144,11 @@ Note:
 
 
 
-### Let it crash and heal itself
 <img src="img/just-restart-part-of-system.jpg" class="r-stretch" />
+<div style="display: flex; gap: 3rem; justify-content: center;">
+  <h3 class="fragment">Let it crash</h3>
+  <h3 class="fragment">...and heal itself</h3>
+</div>
 
 Note:
 - fragility on the micro-scale often means robustness on the macro scale
@@ -168,7 +173,30 @@ Note:
 
 
 
-### Pointers
-- Juric: Soul of Erlang
-- Hebert: Zen of Erlang
-- Tigerbeetle: Assertions, DST
+<!-- .slide: data-background-image="img/bogengaudi.avif" class="orange" -->
+## BogenGaudi
+
+<div class="r-stretch"></div>
+
+### Rent by 📦
+
+
+
+<img src="img/feedback.avif" class="r-stretch" />
+
+---
+
+<div style="display: flex; justify-content: space-between;">
+<div>
+
+#### Marcus Autenrieth
+[0x4d4175@gmail.com](mailto:0x4d4175@gmail.com)
+
+</div>
+<div>
+
+#### Fredrik Teschke
+[ftes.de](https://ftes.de)
+
+</div>
+</div>
