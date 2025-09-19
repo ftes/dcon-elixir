@@ -51,7 +51,7 @@ Note:
 - walk through web UI
   - user facing input
   - dashboard with telemetry
-  - load control
+  - load control: base load!
   - bulletin board?
 
 
