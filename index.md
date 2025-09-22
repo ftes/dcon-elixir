@@ -1,8 +1,8 @@
+<!-- Freddy -->
 <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
 ## Let it Crash
 ----
 ### Designing Robust Systems
-
 
 
 <img src="img/robustness_air_quotes.jpg" class="r-stretch" />
@@ -11,7 +11,6 @@ Note:
 - Who needs this anyways?
 - Sounds pretty unspecific, no?
 - Let's zoom in
-
 
 
 ### A robust system
@@ -42,6 +41,7 @@ Note:
 
 
 
+<!-- Marcus -->
 <img src="img/demo-time.jpg" class="r-stretch" />
 
 <img src="img/hetzner-box.avif" class="r-stretch" />
@@ -76,15 +76,12 @@ Note:
 - keep your browser windows open!
 
 
-
 ### Observability
 <img src="img/observability.jpg" class="r-stretch" />
 
 Note:
 - How can you find a 'misbehaving part of software' on PROD?
 - Follow-Up: How do you partition software in your stack?
-- TODO: enable OS-Data in Dashboard
-- TODO: secure dashboard behind phoenix basic auth
 
 
 
@@ -92,7 +89,7 @@ Note:
 Bulletin board
 
 
-
+<!-- Freddy -->
 <img src="img/sheldon-hunts-bugs.jpg" class="r-stretch" />
 
 Note:
@@ -123,7 +120,7 @@ Note:
 - scheduler: back pressure - sending message to busy process? throttle
 
 
-
+<!-- Marcus -->
 ## Supervision trees
 <img src="img/lego-tree-2.avif" class="r-stretch" />
 
@@ -156,7 +153,7 @@ Note:
   - restart subsystem that got affected by a non user-facing error
 
 
-
+<!-- Freddy -->
 <img src="img/long-tail-of-benefits.jpg" class="r-stretch" />
 Note:
 - assertions in code -> compact, crash if not in expected state
