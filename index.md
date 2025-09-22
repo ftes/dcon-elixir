@@ -91,8 +91,7 @@ Note:
 
 
 
-Please: Break the system!
-TODO Meme
+<img src="img/lets-break-the-system.jpg" class="r-stretch" />
 
 
 
