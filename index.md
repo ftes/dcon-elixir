@@ -5,9 +5,9 @@
 
 Note:
 00:00 Freddy
-Our names
-Your stack is too damn complex - Let it crash with Elixir
-Show you why letting 'it' crash might be a good thing.
+- Marcus, Freddy
+- Original title: 'Your stack is too damn complex - Let it crash with Elixir'
+- Show you why letting 'it' crash might be a good thing.
 
 
 
@@ -15,7 +15,7 @@ Show you why letting 'it' crash might be a good thing.
 
 Note:
 01:00
-- Who needs this anyways?
+- Show of hands: Who needs this?
 - Sounds pretty unspecific, no?
 - Let's zoom in
 
@@ -25,9 +25,8 @@ Note:
 - runs despite errors
 - performant despite errors
 - treats users fairly
----
-- deals with "Heisenbugs"
-- self-heals
+- Heisenbugs <!-- .element: class="fragment" data-fragment-index="1" -->
+- self-healing <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Note:
 01:20
@@ -66,28 +65,19 @@ Note:
   - dashboard with telemetry
   - load control: base load!
   - bulletin board?
-TODO nav bar responsive, rm metrics
 
 
 
-### How would
-## you
-### create such a system?
+## What would You do?
+<!-- qrencode -o img/qrcode-bulletin-buildingblocks.png https://dcon-elixir.ftes.de/bulletin_board/buildingblocks -->
+<img src="img/qrcode-bulletin-buildingblocks.png" class="r-stretch" />
 
+[ftes.de/owl](https://ftes.de/owl)
 Note:
 06:00 Marcus
 - What building blocks would you need?
 - Especially given the hardware constraints we've imposed
 - 🌐 Show board
-
-
-
-TODO Route QR Code to bulletin board
-<img src="img/qrcode.png" class="r-stretch" />
-
-[ftes.de/owl](https://ftes.de/owl)
-Note:
-06:20
 
 
 
@@ -105,9 +95,13 @@ Note:
 
 
 
-### What are your tools?
-Bulletin board
-- TODO Bulletin board 2, QR Code?
+### What are Your tools?
+<!-- qrencode -o img/qrcode-bulletin-observability.png https://dcon-elixir.ftes.de/bulletin_board/observability -->
+<img src="img/qrcode-bulletin-observability.png" class="r-stretch" />
+
+[ftes.de/owl](https://ftes.de/owl)
+Note:
+06:20
 
 
 
@@ -121,8 +115,6 @@ Freddy
 - performance bug: slow calc
 - edge case: `13` bad input
 - missing input validation: negative number -> infinite loop
-
-TODO prepare demo ON server (mix upgrade)
 
 
 
