@@ -17,11 +17,6 @@
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
     <style>
-      .mermaid svg {
-        max-width: initial !important;
-        max-height: 100%;
-      }
-
       .reveal a {
         color: rgb(116 255 81);
       }
@@ -46,36 +41,11 @@
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
-    <!-- Allow caching (type="module" doesn't cache?) -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
     <script>
       Reveal.initialize({
         startOnLoad: false,
         hash: true,
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      });
-
-      mermaid.initialize({
-        startOnLoad: false,
-        theme: "dark",
-        securityLevel: "loose",
-      });
-
-      Reveal.on("slidechanged", async (event) => {
-        const selector = `.present .mermaid`;
-        const els = document.querySelectorAll(selector);
-        const scale = Reveal.getScale();
-        const invertScale = 1 / scale;
-
-        // Temporarily reset diagram scale so that mermaid layout alg runs normally
-        els.forEach((el) => {
-          el.style.transform = `scale(${invertScale})`;
-        });
-        await mermaid.run({ querySelector: selector });
-        els.forEach((el) => {
-          el.style.transform = "";
-        });
-        Reveal.layout();
       });
     </script>
   </body>
