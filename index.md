@@ -36,13 +36,13 @@ Note:
 
 ### Use cases
 - High availability
-- Simple tech stack
 - Start ups
+- Simple tech stack
 
 Note:
 02:00
-- simple tech stack: not language: infrastructure and ops
 - start up: resources constraints, scalable
+- simple tech stack: not language: infrastructure and ops
 
 
 
@@ -60,24 +60,25 @@ bugs and high load 🐞
 
 Note:
 03:00
+- <a target="_blank" href="https://console.hetzner.com/projects/11266407/servers/103367032/overview">Hetzner</a>
+- <a target="_blank" href="https://ftes.de/owl">ftes.de/owl</a>
 - walk through web UI
   - user facing input
-  - dashboard with telemetry
   - load control: base load!
-  - bulletin board?
 
 
 
 ## What would You do?
-<!-- qrencode -o img/qrcode-bulletin-buildingblocks.png https://dcon-elixir.ftes.de/bulletin_board/buildingblocks -->
-<img src="img/qrcode-bulletin-buildingblocks.png" class="r-stretch" />
+<!-- qrencode -o img/qrcode-board.png https://dcon-elixir.ftes.de/board -->
+<img src="img/qrcode-board.png" class="r-stretch" />
 
 [ftes.de/owl](https://ftes.de/owl)
 Note:
 06:00 Marcus
 - What building blocks would you need?
 - Especially given the hardware constraints we've imposed
-- 🌐 Show board
+- 🌐 Show <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/buildingblocks">board 1</a>
+- <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/buildingblocks/admin">admin view</a>
 
 
 
@@ -96,12 +97,14 @@ Note:
 
 
 ### What are Your tools?
-<!-- qrencode -o img/qrcode-bulletin-observability.png https://dcon-elixir.ftes.de/bulletin_board/observability -->
-<img src="img/qrcode-bulletin-observability.png" class="r-stretch" />
+<!-- qrencode -o img/qrcode-board.png https://dcon-elixir.ftes.de/board -->
+<img src="img/qrcode-board.png" class="r-stretch" />
 
 [ftes.de/owl](https://ftes.de/owl)
 Note:
-06:20
+10:00
+- 🌐 Show <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/observability">board 2</a>
+- <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/observability/admin">admin view</a>
 
 
 
