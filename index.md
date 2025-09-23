@@ -70,6 +70,7 @@ Note:
     - 100_000
     - show Hetzner graph
     - 150_000
+- all running in single OS process
 
 
 
