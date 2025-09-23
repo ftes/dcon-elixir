@@ -68,8 +68,7 @@ Note:
   - user facing input
   - <a target="_blank" href="https://dcon-elixir.ftes.de/dashboard/load_control">load control dashboard</a>
     - 100_000
-    - show Hetzner graph
-    - 150_000
+    - scheduler load, <a href="https://console.hetzner.com/projects/11266407/servers/103367032/graphs">Hetzner graph</a>
 - all running in single OS process
 
 
@@ -230,18 +229,41 @@ Note:
 
 
 
-## Other Benefits
-- telemetry + shell
-- SSR + WebSocket + DOM patching = ✅
+## Uniformity
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+
+- simple tech stack
+- dev, test, deploy, ops
+
+<small>
+
+- background jobs
+- distributed cache
+- crash recovery
+- remote shell
+- monitoring
+- rich web UI
+- cluster
+
+</small>
+</div>
 
 Note:
 37:00
 
 
+## Other Benefits
+- telemetry + shell
+- SSR + WebSocket + DOM patching = ✅
+
+Note:
+38:00
+
+
 
 <img src="img/robustness-and-dx.jpg" class="r-stretch" />
 Note:
-38:00
+39:00
 
 
 
