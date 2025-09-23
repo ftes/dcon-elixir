@@ -5,6 +5,7 @@
 
 Note:
 00:00 Freddy
+- Prep: Tail logs, remote console, load control 0, reset board to default
 - Marcus, Freddy
 - Original title: 'Your stack is too damn complex - Let it crash with Elixir'
 - Show you why letting 'it' crash might be a good thing.
@@ -25,30 +26,31 @@ Note:
 - runs despite errors
 - performant despite errors
 - treats users fairly
+<hr class="fragment" data-fragment-index="1" />
 - Heisenbugs <!-- .element: class="fragment" data-fragment-index="1" -->
 - self-healing <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Note:
-01:20
+02:00
 - low support and operational costs
 
 
 
 ### Use cases
 - High availability
-- Start ups
 - Simple tech stack
+- Start ups
 
 Note:
-02:00
-- start up: resources constraints, scalable
+03:40
 - simple tech stack: not language: infrastructure and ops
+- start up: resources constraints, scalable
 
 
 
 <img src="img/robustness-vs-dx.jpg" class="r-stretch" />
 Note:
-02:40
+04:00
 
 
 
@@ -59,30 +61,42 @@ Note:
 bugs and high load 🐞
 
 Note:
-03:00
+05:00
 - <a target="_blank" href="https://console.hetzner.com/projects/11266407/servers/103367032/overview">Hetzner</a>
 - <a target="_blank" href="https://ftes.de/owl">ftes.de/owl</a>
 - walk through web UI
   - user facing input
-  - load control: base load!
+  - <a target="_blank" href="https://dcon-elixir.ftes.de/dashboard/load_control">load control dashboard</a>
+    - 100_000
+    - show Hetzner graph
+    - 150_000
 
 
 
-## What would You do?
-<!-- qrencode -o img/qrcode-board.png https://dcon-elixir.ftes.de/board -->
-<img src="img/qrcode-board.png" class="r-stretch" />
+### How would You build it?
+<!-- qrencode -o img/qrcode-board-building-blocks.png https://dcon-elixir.ftes.de/board/building-blocks -->
+<img src="img/qrcode-board-building-blocks.png" class="r-stretch" />
 
 [ftes.de/owl](https://ftes.de/owl)
 Note:
-06:00 Marcus
+09:00 Marcus
 - What building blocks would you need?
 - Especially given the hardware constraints we've imposed
-- 🌐 Show <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/buildingblocks">board 1</a>
-- <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/buildingblocks/admin">admin view</a>
+- 🌐 Show <a target="_blank" href="https://dcon-elixir.ftes.de/board/building-blocks">board 1</a>
+- <a target="_blank" href="https://dcon-elixir.ftes.de/board/building-blocks/admin">admin view</a>
 
 
 
 <img src="img/lets-break-the-system.jpg" class="r-stretch" />
+<a href="https://ftes.de/owl" target="_blank">ftes.de/owl</a>
+Note:
+13:00
+- your turn: find 3 bugs
+  - negative
+  - 13
+  - large numbers
+- wait until all are found
+- demonstrate for everyone to see
 
 
 
@@ -90,34 +104,39 @@ Note:
 <img src="img/observability.jpg" class="r-stretch" />
 
 Note:
-09:00
-- How can you find a 'misbehaving part of software' on PROD?
-- Follow-Up: How do you partition software in your stack?
+16:00
 
 
 
 ### What are Your tools?
-<!-- qrencode -o img/qrcode-board.png https://dcon-elixir.ftes.de/board -->
-<img src="img/qrcode-board.png" class="r-stretch" />
+<!-- qrencode -o img/qrcode-board-observability.png https://dcon-elixir.ftes.de/board/observability -->
+<img src="img/qrcode-board-observability.png" class="r-stretch" />
 
 [ftes.de/owl](https://ftes.de/owl)
 Note:
-10:00
-- 🌐 Show <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/observability">board 2</a>
-- <a target="_blank" href="https://dcon-elixir.ftes.de/bulletin_board/observability/admin">admin view</a>
+16:30
+- <a target="_blank" href="https://dcon-elixir.ftes.de/board/observability/admin">board 2 admin view</a>
+- How can you find a 'misbehaving part of software' on PROD?
+- Follow-Up: How do you partition software in your stack?
 
 
 
 <img src="img/sheldon-hunts-bugs.jpg" class="r-stretch" />
 
 Note:
-Freddy
+20:00 Freddy
 - keep your browser windows open!
-- show errors in log
-- trace
-- performance bug: slow calc
-- edge case: `13` bad input
-- missing input validation: negative number -> infinite loop
+- `mirror`
+- edge case 13: error in log -> fix `math.ex`
+- negative number -> fix `web/math.ex`
+- large numbers
+  - <a target="_blank" href="https://dcon-elixir.ftes.de/dashboard/processes?limit=50&search=&sort_by=reductions_diff&sort_dir=desc">Processes dashboard</a>
+  - `pid = pid(0, 302790, 0)`
+  - `Runtime.top()`
+  - `Runtime.trace(pid)`
+  - `Runtime.stacktrace(pid)`
+  - `Runtime.kill_math()`
+- deploy: `scripts/upgrade.sh`
 
 
 
@@ -127,42 +146,28 @@ Freddy
 ### for Robustness
 
 Note:
-Marcus
-ad lib
-What primitives must the runtime provide to enable this?
+25:00 Marcus, ad lib
+- What primitives must the runtime provide to enable this?
 
 
 
 <img src="img/lego-plate-threads-meme.jpg" class="r-stretch" />
 
 Note:
+25:30
 - threads: lightweight, isolated, identity
 - preemptive scheduling
 - memory isolation & message passing
 - threads have and identity -> introspection
-- process supervision (via message system)
-- scheduler: back pressure - sending message to busy process? throttle
 
 
 
 ## Supervision trees
 <img src="img/lego-tree-2.avif" class="r-stretch" />
 
-
-
-<img src="img/complecting-code-paths-spiderman.jpg" class="r-stretch" />
-
-
-
-### Reducing Complexity
-<img src="img/complect-tangled.jpg" class="r-stretch" />
-
 Note:
-Marcus
-- complex -> to complect
-- there are errors that are relevant to the user
-- and errors that are irrelevant to the user
-- Why do both types of errors need to be complected?
+28:00
+- process supervision (via message system)
 
 
 
@@ -173,26 +178,69 @@ Marcus
 </div>
 
 Note:
+30:00
 - fragility on the micro-scale often means robustness on the macro scale
 - Supervision-tree:
   - restart subsystem that got affected by a non user-facing error
 
 
 
+<img src="img/complecting-code-paths-spiderman.jpg" class="r-stretch" />
+Note:
+32:00 Marcus
+
+
+
+### Reducing Complexity
+<img src="img/complect-tangled.jpg" class="r-stretch" />
+
+Note:
+32:30
+- complex -> to complect
+- there are errors that are relevant to the user
+- and errors that are irrelevant to the user
+- Why do both types of errors need to be complected?
+
+
+
 <img src="img/long-tail-of-benefits.jpg" class="r-stretch" />
 Note:
-Freddy
-- assertions in code -> compact, crash if not in expected state
-- it crashes loudly -> see it in logs
-- back pressure - sending message to busy process? throttle
-- Distributed as a default
-  - Kubernetes, distributed caches, message queues
-- SSR + WebSockets + DOM patching = No Problem
-  - Phoenix + LiveView (Now in 1.1)
+34:00 Freddy
+
+
+
+## Processes
+- isolated
+- introspectable
+- distributed
+
+Note:
+34:30
+
+
+## Let it Crash
+- compact
+- loud
+- self-healing
+
+Note:
+36:00
+- let it crash: assert expected state
+
+
+
+## Other Benefits
+- telemetry + shell
+- SSR + WebSocket + DOM patching = ✅
+
+Note:
+37:00
 
 
 
 <img src="img/robustness-and-dx.jpg" class="r-stretch" />
+Note:
+38:00
 
 
 
