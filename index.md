@@ -32,6 +32,7 @@ Note:
 
 Note:
 02:00
+- graceful degradation
 - low support and operational costs
 
 
@@ -51,6 +52,8 @@ Note:
 <img src="img/robustness-vs-dx.jpg" class="r-stretch" />
 Note:
 04:00
+- developer experience: low mental load, less moving parts
+- ease of deployment, monitoring, tracing
 
 
 
@@ -218,6 +221,7 @@ Note:
 34:30
 
 
+
 ## Let it Crash
 - compact
 - loud
@@ -250,6 +254,7 @@ Note:
 
 Note:
 37:00
+
 
 
 ## Other Benefits
